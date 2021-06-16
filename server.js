@@ -1,6 +1,4 @@
 const express = require('express');
-const htmlRoute = require('./routes/htmlRoute')
-const apiRoute = require('./routes/apiRoute')
 
 // Setting up Express
 const app = express();
@@ -12,8 +10,8 @@ app.use(express.json());
 
 // Using middleware to make folder static
 app.use(express.static('public'));
-app.use('/', htmlRoute)
-app.use('/', apiRoute)
+htmlRoute = require('./routes/htmlRoute')(app)
+apiRoute = require('./routes/apiRoute')(app)
 
 // Start server
 app.listen(PORT, ()=> {console.log("LISTENING ON PORT", PORT)});
