@@ -19,6 +19,7 @@
 
   ## Demo
   <a href="https://fast-sierra-79700.herokuapp.com/">Heroku Link</a>
+  -----------------------------------------------
   ![Demo gif](./public/assets/img/noteTaker.gif)
   ## License
   This projects is licensed under the ISC license.
