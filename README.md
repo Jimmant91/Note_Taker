@@ -5,6 +5,7 @@
   ## Table of Contents
   * [Installation](##-installation)
   * [Usage](##-usage)
+  * [Demo](##-demo)
   * [Questions](##-questions)
   ## Installation
   To install the necessary dependencies, run the following command:
@@ -15,6 +16,10 @@
   ```
   ## Usage
   After installation, locate the application in your terminal, run 'node server.js' to start the local server. In your browser's url, enter 'http://localhost:3000/' to connect to your localhost server and load the note taker application.
+
+  ## Demo
+  <a href="https://fast-sierra-79700.herokuapp.com/">Heroku Link</a>
+  ![Demo gif](public\assets\img\noteTaker.gif)
   ## License
   This projects is licensed under the ISC license.
   ## Questions
