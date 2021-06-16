@@ -49,20 +49,25 @@ module.exports = (app) => {
        
         // DELETE notes
         app.delete("/api/notes/:id", (req, res) => {
-    
-            let noteId = req.params.id;
-            let newId = 0;
-            console.log(`Deleted note ${noteId}`);
-    
-            noteData = noteData.filter(currNote => {
-                return currNote.id != noteId;
+            //use fs to read data and store to notesArray
+            console.log(req.params.id);
+            readFileSync('db/db.json', 'utf8').then(data => {
+               const notesArray = JSON.parse(data);
+               let deletedNote;
+              
+               // remove the note with req.params.id === note.id
+               notesArray.map((note, index) => {
+                if (note.id === req.params.id) {
+                    deletedNote = index;
+                }
+               });
+               
+               notesArray.splice(deletedNote, 1);
+        
+               //use fs to rewrite to db.json w/ updated notesArray
+               writeFileSync('db/db.json', JSON.stringify(notesArray));
+                res.json(notesArray);
             });
-            for (currNote of noteData) {
-                currNote.id = newId.toString();
-                newId++;
-            }
-            fs.writeFileSync("./db/db.json", JSON.stringify(noteData));
-            res.json(noteData);
         }); 
     }
 };
